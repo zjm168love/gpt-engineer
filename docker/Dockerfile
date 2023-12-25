@@ -8,6 +8,7 @@ WORKDIR /app
 COPY . .
 COPY docker/entrypoint.sh ./entrypoint.sh
 
-RUN sudo pip install -e .
+RUN sudo /usr/local/bin/python -m pip install --upgrade pip \
+    && sudo pip install -e .
 
 ENTRYPOINT ["bash", "/app/entrypoint.sh"]
